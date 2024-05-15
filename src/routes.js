@@ -8,7 +8,6 @@ export default function Router() {
             <Routes>
                 <Route path="/" element={<PaginaPadrao/>}>
                     <Route index element={<Home/>}/>
-                    {/* Vamos ter que colocar TODAS AS CATEGORIAS aqui, e não é a função do route */}
                 </Route>
             </Routes>
         </BrowserRouter>
