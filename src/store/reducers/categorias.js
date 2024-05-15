@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+
+// Imagens
 import automotivoThumb from 'assets/categorias/thumbnail/automotivo.png';
 import eletronicosThumb from 'assets/categorias/thumbnail/eletronicos.png';
 import escritorioThumb from 'assets/categorias/thumbnail/escritorio.png';
