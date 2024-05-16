@@ -1,5 +1,5 @@
 import PaginaPadrao from "PaginaPadrao";
-import Categoria from "pages/Categorias";
+import Categoria from "pages/Categoria";
 import Home from "pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
