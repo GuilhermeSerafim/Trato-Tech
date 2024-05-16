@@ -4,12 +4,10 @@ import { useParams } from "react-router-dom";
 
 export default function Categoria() {
     const { categoriaId: paramCategoria } = useParams(); // Destructuring
-    const { categoriaReducer, itensCategoriaReducer } = useSelector(state => { // Destructuring
-        return {
-            categoriaReducer: state.categorias.find(categoria => categoria.id === paramCategoria),
-            itensCategoriaReducer: state.itensCategoria.filter(itemCategoria => itemCategoria.categoria == paramCategoria), // Filtro para exibir os dados da categoria respectiva
-        }
-    });
+    const { categoriaReducer, itensCategoriaReducer } = useSelector(state => ({ // Destructuring
+        categoriaReducer: state.categorias.find(categoria => categoria.id === paramCategoria),
+        itensCategoriaReducer: state.itensCategoria.filter(itemCategoria => itemCategoria.categoria == paramCategoria), // Filtro para exibir os dados da categoria respectiva
+    }));
     console.log(itensCategoriaReducer)
     return (
         <div>
