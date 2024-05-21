@@ -238,7 +238,6 @@ const itensSlice = createSlice({
     reducers: {
         mudarFavorito: (state, { payload }) => {
             state = state.map(item => {
-                console.log(state)
                 if (item.id === payload) item.favorito = !item.favorito; // Inverte o estado de item
                 return item;
             })
