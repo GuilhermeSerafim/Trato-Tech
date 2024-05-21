@@ -237,7 +237,7 @@ const itensSlice = createSlice({
     initialState,
     reducers: {
         mudarFavorito: (state, { payload }) => {
-            state = state.map(item => {
+            state.map(item => {
                 if (item.id === payload) item.favorito = !item.favorito; // Inverte o estado de item
                 return item;
             })
@@ -245,5 +245,5 @@ const itensSlice = createSlice({
     }
 });
 
-export const { mudarFavorito, incrementar } = itensSlice.actions;
+export const { mudarFavorito } = itensSlice.actions;
 export default itensSlice.reducer;
