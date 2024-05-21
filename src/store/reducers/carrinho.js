@@ -2,6 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = [];
 
+/* ----------------------------------
+ Diferença entre REDUCER e SLICE
+ Em resumo, um reducer é uma função que define como o estado é atualizado em resposta a uma ação, enquanto um slice é uma estrutura organizacional
+ que inclui o estado inicial, as ações e os reducers relacionados a uma parte específica do estado global da aplicação. 
+ Um slice pode conter vários reducers, cada um responsável por uma parte diferente do estado, enquanto um reducer normalmente lida com uma parte específica do estado.
+ ---------------------------------- */
+ 
 const carrinhoSlice = createSlice({
     name: 'carrinho',
     initialState,
@@ -12,7 +19,7 @@ const carrinhoSlice = createSlice({
             if (!temItem) { // Verificação para adicionar o item
                 return [
                     ...state,
-                    { // Adicionando um NOVO ESTADO (antes estavamos enviando dentro do estado com push)
+                    { // Adicionando um NOVO ESTADO (retornar uma mudança não condiz com os padrões do Immer)
                         id: payload,
                         quantidade: 1
                     }];
