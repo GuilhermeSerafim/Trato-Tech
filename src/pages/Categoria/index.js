@@ -11,7 +11,7 @@ export default function Categoria() {
         categoriaReducer: state.categorias.find(categoria => categoria.id === paramCategoria),
         itensCategoriaReducer: state.itensCategoria.filter(itemCategoria => itemCategoria.categoria == paramCategoria), // Filtro para exibir os dados da categoria respectiva
     }));
-    console.log(itensCategoriaReducer); //check
+
     return (
         <div>
             <Header

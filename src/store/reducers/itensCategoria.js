@@ -236,12 +236,20 @@ const itensSlice = createSlice({
     name: 'itensCategoria',
     initialState,
     reducers: {
-        mudarFavorito: (state, params) => {
-            console.log('state', state);
-            console.log('params', params)
+        mudarFavorito: (state, { payload }) => {
+            state = state.map(item => {
+                console.log(state)
+                if (item.id === payload) item.favorito = !item.favorito;
+                return item;
+            })
+        },
+        incrementar: (state, { payload }) => {
+          state = 10;
+          if(payload) state = state + payload;
+          console.log(state)
         }
     }
 });
 
-export const { mudarFavorito } = itensSlice.actions;
+export const { mudarFavorito, incrementar } = itensSlice.actions;
 export default itensSlice.reducer;
