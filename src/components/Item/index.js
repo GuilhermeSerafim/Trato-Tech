@@ -9,6 +9,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { mudarCarrinho } from "store/reducers/carrinho";
 import { mudarFavorito } from "store/reducers/itensCategoria";
+import classNames from "classnames";
 
 const iconeProps = {
     size: 24,
@@ -22,6 +23,7 @@ export default function Item({
     descricao,
     favorito,
     id,
+    carrinho,
 }) {
     const dispatch = useDispatch();
     const resolverFavorito = () => {
@@ -34,7 +36,9 @@ export default function Item({
         dispatch(mudarCarrinho(id));
     }
     return (
-        <div className={styles.item}>
+        <div className={classNames(styles.item, {
+            [styles.itemNoCarrinho]: carrinho, // Irá sobrepor se estiver na tela carrinho (ou se carrinho for true)
+        })}>
             <div className={styles['item-imagem']}>
                 <img src={foto} alt={titulo} />
             </div>
