@@ -21,14 +21,14 @@ export default function NavBar() {
             <Logo className={styles.logo} onClick={() => navigator("/")} />
             <div className={styles.links}>
                 <div>
-                    <Link href="/" className={classNames(styles.link, { // Antes da chave é naturalmente true
+                    <Link to="/" className={classNames(styles.link, { // Antes da chave é naturalmente true
                         [styles.selected]: location.pathname === "/"
                     })}>Página Inicial</Link>
                 </div>
             </div>
             <div className={styles.busca}><Busca /></div>
             <div className={styles.icones}>
-                <Link href="/carrinho">
+                <Link to="/carrinho">
                     {location.pathname === "/carrinho"
                         ? <RiShoppingCartFill {...iconesProps} />
                         : <RiShoppingCart2Line {...iconesProps} />

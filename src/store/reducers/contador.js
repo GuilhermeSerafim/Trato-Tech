@@ -5,7 +5,7 @@ const initialState = 10;
 const contador = createSlice({
     name: 'contador',
     initialState,
-    reducers: {
+    reducers: { // Criação de actions
         incrementar: (state, { payload, type }) => {
             console.log(payload);
             console.log(type);
