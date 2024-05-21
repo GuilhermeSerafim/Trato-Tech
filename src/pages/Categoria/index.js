@@ -6,6 +6,7 @@ import Item from "components/Item";
 
 export default function Categoria() {
     const { categoriaId: paramCategoria } = useParams(); // Destructuring
+    // Forma de pegar 2 states cm useSelector
     const { categoriaReducer, itensCategoriaReducer } = useSelector(state => ({ // Esse return é usado quando quero apenas retornar um objeto
         categoriaReducer: state.categorias.find(categoria => categoria.id === paramCategoria),
         itensCategoriaReducer: state.itensCategoria.filter(itemCategoria => itemCategoria.categoria == paramCategoria), // Filtro para exibir os dados da categoria respectiva
