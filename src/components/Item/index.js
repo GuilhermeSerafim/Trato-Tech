@@ -7,7 +7,7 @@ import {
     FaCartPlus
 } from 'react-icons/fa';
 import { useDispatch } from "react-redux";
-import { incrementar, mudarFavorito } from "store/reducers/itensCategoria";
+import {  mudarFavorito } from "store/reducers/itensCategoria";
 
 const iconeProps = {
     size: 24,
@@ -24,8 +24,7 @@ export default function Item({
 }) {
     const dispatch = useDispatch();
     const resolverFavorito = () => {
-        dispatch(mudarFavorito(id));
-        dispatch(incrementar(10));
+        dispatch(mudarFavorito(id)); // Uso do payload
     }
     return (
         <div className={styles.item}>

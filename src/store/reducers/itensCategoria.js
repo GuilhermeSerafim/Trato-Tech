@@ -239,15 +239,10 @@ const itensSlice = createSlice({
         mudarFavorito: (state, { payload }) => {
             state = state.map(item => {
                 console.log(state)
-                if (item.id === payload) item.favorito = !item.favorito;
+                if (item.id === payload) item.favorito = !item.favorito; // Inverte o estado de item
                 return item;
             })
         },
-        incrementar: (state, { payload }) => {
-          state = 10;
-          if(payload) state = state + payload;
-          console.log(state)
-        }
     }
 });
 
