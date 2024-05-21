@@ -6,6 +6,7 @@ import {
     RiShoppingCartFill
 } from "react-icons/ri";
 import Busca from "components/Busca";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const iconesProps = {
     color: "white",
@@ -13,24 +14,26 @@ const iconesProps = {
 }
 
 export default function NavBar() {
+    const location = useLocation(); // Resgatar parametros
+    const navigator = useNavigate(); // Navegar entre as paginas
     return (
         <nav className={styles.nav}>
-            <Logo className={styles.logo} />
+            <Logo className={styles.logo} onClick={() => navigator("/")} />
             <div className={styles.links}>
                 <div>
-                    <a href="/" className={classNames(styles.link, { // Antes da chave é naturalmente true
-                        [styles.selected]: window.location.pathname === "/"
-                    })}>Página Inicial</a>
+                    <Link href="/" className={classNames(styles.link, { // Antes da chave é naturalmente true
+                        [styles.selected]: location.pathname === "/"
+                    })}>Página Inicial</Link>
                 </div>
             </div>
-            <div className={styles.busca}><Busca/></div>
+            <div className={styles.busca}><Busca /></div>
             <div className={styles.icones}>
-                <a href="/carrinho">
-                    {window.location.pathname === "/carrinho"
+                <Link href="/carrinho">
+                    {location.pathname === "/carrinho"
                         ? <RiShoppingCartFill {...iconesProps} />
                         : <RiShoppingCart2Line {...iconesProps} />
                     }
-                </a>
+                </Link>
             </div>
         </nav>
     )

@@ -30,12 +30,12 @@ export default function Categoria() {
                     />
                 ))}
             </div>
-            <div style={{display:"flex", alignItems: "center", justifyContent:"center"}}>
-            <button onClick={() => dispatch(incrementar("testeIncrementar"))}>Incrementar</button>
-            <h1>{contador}</h1>
-            <button onClick={() => dispatch(decrementar("testeDecrementar"))}>Decrementar</button> {/*Uso do payload */}
+            {/* <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <button onClick={() => dispatch(incrementar("testeIncrementar"))}>Incrementar</button>
+                <h1>{contador}</h1>
+                <button onClick={() => dispatch(decrementar("testeDecrementar"))}>Decrementar</button> -> Uso do payload
 
-            </div>
+            </div> */}
         </div>
     )
 }
