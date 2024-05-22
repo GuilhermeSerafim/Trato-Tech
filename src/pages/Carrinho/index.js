@@ -1,9 +1,13 @@
 import Header from "components/Header";
 import styles from "./Carrinho.module.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Item from "components/Item";
+import { resetarCarrinho } from "store/reducers/carrinho";
+import { useNavigate } from "react-router-dom";
 
 export default function Carrinho() {
+    const navigator = useNavigate();
+    const dispatch = useDispatch();
     const { carrinho, total } = useSelector(state => { // Estado global do Redux, que contém todos os slices (partes) do estado definidos na store.
         let total = 0;
         // reduce -> array.reduce(callback(accumulator, currentValue, currentIndex, array), initialValue)
@@ -42,6 +46,13 @@ export default function Carrinho() {
                     <span>
                         Total: <strong> R${total.toFixed(2)}</strong>
                     </span>
+                    <button
+                        className={styles.finalizar}
+                        onClick={() => {
+                            dispatch(resetarCarrinho())
+                            navigator("/");
+                        }}
+                    >Finalizar Compra</button>
                 </div>
             </div>
         </div>
