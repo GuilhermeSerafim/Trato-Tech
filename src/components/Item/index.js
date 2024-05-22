@@ -33,8 +33,6 @@ export default function Item({
     carrinho, // Verifacação booleana
     quantidade,
 }) {
-    console.log(quantidade + 1)
-
     const dispatch = useDispatch();
     // PARA MUDANÇA DE COR APENAS
     const estaNoCarrinho = useSelector(state => state.carrinho.some(itemNoCarrinho => itemNoCarrinho.id === idGerado));
