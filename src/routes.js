@@ -1,4 +1,4 @@
-import PaginaPadrao from "PaginaPadrao";
+import PaginaPadrao from "components/PaginaPadrao";
 import Carrinho from "pages/Carrinho";
 import Categoria from "pages/Categoria";
 import Home from "pages/Home";

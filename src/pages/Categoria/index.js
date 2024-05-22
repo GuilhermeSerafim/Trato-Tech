@@ -1,31 +1,33 @@
 import Header from "components/Header";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styles from "./Categoria.module.scss";
 import Item from "components/Item";
-import { decrementar, incrementar } from "store/reducers/contador";
 
 
 export default function Categoria() {
-    const { categoriaId: paramCategoria } = useParams(); // Destructuring
+    const { categoriaId: paramNomeCategoria } = useParams(); // Destructuring
     // Forma de pegar 2 states cm useSelector
-    const { categoriaReducer, itensCategoriaReducer, contador } = useSelector(state => ({ // Esse return é usado quando quero apenas retornar um objeto
-        categoriaReducer: state.categorias.find(categoria => categoria.id === paramCategoria),
-        itensCategoriaReducer: state.itensCategoria.filter(itemCategoria => itemCategoria.categoria == paramCategoria), // Filtro para exibir os dados da categoria respectiva
-        contador: state.contador
+    const { categoriaRespectivaAPagina, itensFiltradosPorCategoria } = useSelector(state => ({ // Esse return é usado quando quero apenas retornar um objeto
+        categoriaRespectivaAPagina: state.categorias.find(categoria => categoria.id /* Esse id é o name da categoria na verdade */ === paramNomeCategoria),
+        itensFiltradosPorCategoria: state.itensCategoria.filter(itemCategoria => itemCategoria.categoria == paramNomeCategoria),
     }));
-    const dispatch = useDispatch();
+
+    itensFiltradosPorCategoria.forEach(element => {
+        console.log(element.idGerado)
+    });
+
     return (
         <div>
             <Header
-                titulo={categoriaReducer.nome}
-                descricao={categoriaReducer.descricao}
-                imagem={categoriaReducer.header}
+                titulo={categoriaRespectivaAPagina.nome}
+                descricao={categoriaRespectivaAPagina.descricao}
+                imagem={categoriaRespectivaAPagina.header}
             />
             <div className={styles.itensCategoria}>
-                {itensCategoriaReducer?.map(itemCategoria => ( // O "?" faz com que se não tiver o item ele nem executa o map
+                {itensFiltradosPorCategoria?.map(itemCategoria => ( // O "?" faz com que se não tiver o item ele não executa o map
                     <Item
-                        key={itemCategoria.id}
+                        key={itemCategoria.idGerado}
                         {...itemCategoria}
                     />
                 ))}

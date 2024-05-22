@@ -14,19 +14,19 @@ const carrinhoSlice = createSlice({
     initialState,
     reducers: {
         mudarCarrinho: (state, { payload }) => { // State é o estado inicial do carrinho
-            // No Immer, você pode ou modificar o draft do estado diretamente ou retornar um novo estado, mas não ambos.
-            const temItem = state.some(item => item.id === payload); // Verificação de existência do item no carrinho
+            // debugger
+            // Verifica se algum item no carrinho tem o id igual ao payload
+            const temItem = state.some(item => item.id === payload);
             if (!temItem) {
                 return [
                     ...state,
-                    { // Adicionando um NOVO ESTADO (retornar uma mudança (push) não condiz com os padrões do Immer)
+                    { 
                         id: payload,
                         quantidade: 1
                     }];
             }
-            // Se item.id !== payload for true, o item é mantido no novo array. Se for false, o item é excluído.
-            return state.filter(item => item.id !== payload); // E AQUI TAMBÉM, RETORNA UM NOVO ESTADO
-            // Para corrigir o erro, você deve escolher uma abordagem consistente: ou modificar o draft diretamente, ou retornar um novo estado.     
+
+            return state.filter(item => item.id !== payload);
         }
     }
 });

@@ -30,13 +30,13 @@ import caixaSomBluetooth from 'assets/itens/caixa-som-bluetooth.png';
 import miniSystem from 'assets/itens/mini-system.png';
 import tablet from 'assets/itens/tablet.png';
 
-const initialState = [{
+const itensDeCadaCategoria = [{
     titulo: 'Assistente virtual',
     descricao: 'Conheça nosso smart speaker de maior sucesso ainda melhor. O novo design de áudio com direcionamento frontal (1 speaker de 1,6") garante mais graves e um som completo.',
     foto: assistenteVirtual,
     favorito: false,
     preco: 285,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'eletronicos'
 }, {
     titulo: 'AirPods com Estojo de Recarga',
@@ -44,7 +44,7 @@ const initialState = [{
     foto: airpod,
     favorito: false,
     preco: 900,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'eletronicos'
 }, {
     titulo: 'Tablet Wi-Fi',
@@ -52,7 +52,7 @@ const initialState = [{
     foto: tablet,
     favorito: false,
     preco: 637,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'eletronicos'
 }, {
     titulo: 'Assistente virtual com tela',
@@ -60,7 +60,7 @@ const initialState = [{
     foto: assistenteVirtualTela,
     favorito: false,
     preco: 1600,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'eletronicos'
 }, {
     titulo: 'Leitor de livros digitais',
@@ -68,7 +68,7 @@ const initialState = [{
     foto: leitorLivros,
     favorito: false,
     preco: 447,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'eletronicos'
 }, {
     titulo: 'Almofada de assento',
@@ -76,7 +76,7 @@ const initialState = [{
     foto: almofadaAssento,
     favorito: false,
     preco: 45.90,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'automotivos'
 }, {
     titulo: 'Capa de volante de couro',
@@ -84,7 +84,7 @@ const initialState = [{
     foto: capaVolanteCouro,
     favorito: false,
     preco: 150,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'automotivos'
 }, {
     titulo: 'Organizador lateral',
@@ -92,7 +92,7 @@ const initialState = [{
     foto: organizadorLateral,
     favorito: false,
     preco: 149.90,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'automotivos'
 }, {
     titulo: 'Capa de volante de cristais',
@@ -100,7 +100,7 @@ const initialState = [{
     foto: capaVolanteCristais,
     favorito: false,
     preco: 290,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'automotivos'
 }, {
     titulo: 'Suporte Veicular',
@@ -108,7 +108,7 @@ const initialState = [{
     foto: suporteVeicular,
     favorito: false,
     preco: 59.90,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'automotivos'
 }, {
     titulo: 'Console',
@@ -116,7 +116,7 @@ const initialState = [{
     foto: console1,
     favorito: false,
     preco: 4300,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'jogos'
 }, {
     titulo: 'Jogo para console',
@@ -124,7 +124,7 @@ const initialState = [{
     foto: jogo1,
     favorito: false,
     preco: 299.90,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'jogos'
 }, {
     titulo: 'Console',
@@ -132,7 +132,7 @@ const initialState = [{
     foto: console2,
     favorito: false,
     preco: 4349,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'jogos'
 }, {
     titulo: 'Controle joystick sem fio',
@@ -140,7 +140,7 @@ const initialState = [{
     foto: manete,
     favorito: false,
     preco: 279,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'jogos'
 }, {
     titulo: 'Jogo para console',
@@ -148,7 +148,7 @@ const initialState = [{
     foto: jogo2,
     favorito: false,
     preco: 349.90,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'jogos'
 }, {
     titulo: 'Organizador de Mesa',
@@ -156,7 +156,7 @@ const initialState = [{
     foto: guardaTreco,
     favorito: false,
     preco: 19.90,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'escritorio'
 }, {
     titulo: 'Caderno Inteligente',
@@ -164,7 +164,7 @@ const initialState = [{
     foto: caderno,
     favorito: false,
     preco: 285,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'escritorio'
 }, {
     titulo: 'Cadeira de Escritório',
@@ -172,7 +172,7 @@ const initialState = [{
     foto: cadeira,
     favorito: false,
     preco: 629,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'escritorio'
 }, {
     titulo: 'Papel Sulfite A4 75g 500 folhas',
@@ -180,7 +180,7 @@ const initialState = [{
     foto: papel,
     favorito: false,
     preco: 27.60,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'escritorio'
 }, {
     titulo: 'Arquivo Estreito com Furação',
@@ -188,7 +188,7 @@ const initialState = [{
     foto: organizadorPastas,
     favorito: false,
     preco: 44.90,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'escritorio'
 }, {
     titulo: 'TV Smart 50"',
@@ -196,7 +196,7 @@ const initialState = [{
     foto: tv50,
     favorito: false,
     preco: 2600,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'som'
 }, {
     titulo: 'Smart TV 60" 4K UHD',
@@ -204,7 +204,7 @@ const initialState = [{
     foto: tv60,
     favorito: false,
     preco: 3359,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'som'
 }, {
     titulo: 'Caixa de Som',
@@ -212,7 +212,7 @@ const initialState = [{
     foto: caixaSom,
     favorito: false,
     preco: 5817.33,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'som'
 }, {
     titulo: 'Caixa de Som Bluetooth',
@@ -220,7 +220,7 @@ const initialState = [{
     foto: caixaSomBluetooth,
     favorito: false,
     preco: 1199,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'som'
 }, {
     titulo: 'Mini System com Função karaokê',
@@ -228,22 +228,22 @@ const initialState = [{
     foto: miniSystem,
     favorito: false,
     preco: 782.91,
-    id: uuid(),
+    idGerado: uuid(),
     categoria: 'som'
 }];
 
-const itensSlice = createSlice({
+const itensDeCadaCategoriaSlice = createSlice({
     name: 'itensCategoria',
-    initialState,
+    initialState: itensDeCadaCategoria,
     reducers: {
         mudarFavorito: (state, { payload }) => {
             state.map(item => {
-                if (item.id === payload) item.favorito = !item.favorito; // Inverte o estado de item
+                if (item.idGerado === payload) item.favorito = !item.favorito; // Inverte o estado de item
                 return item;
             })
         },
     }
 });
 
-export const { mudarFavorito } = itensSlice.actions;
-export default itensSlice.reducer;
+export const { mudarFavorito } = itensDeCadaCategoriaSlice.actions;
+export default itensDeCadaCategoriaSlice.reducer;

@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa';
 import { useDispatch, useSelector } from "react-redux";
 import { mudarCarrinho } from "store/reducers/carrinho";
-import { mudarFavorito } from "store/reducers/itensCategoria";
+import { mudarFavorito } from "store/reducers/itensDeCadaCategoria";
 import classNames from "classnames";
 
 const iconeProps = {
@@ -22,19 +22,12 @@ export default function Item({
     preco,
     descricao,
     favorito,
-    id,
+    idGerado,
     carrinho,
 }) {
     const dispatch = useDispatch();
-    const resolverFavorito = () => {
-        dispatch(mudarFavorito(id)); // Uso do payload
-    }
-    const estaNoCarrinho = useSelector(state =>
-        state.carrinho.some(itemNoCarrinho => itemNoCarrinho.id === id));
+    const estaNoCarrinho = useSelector(state => state.carrinho.some(itemNoCarrinho => itemNoCarrinho.id === idGerado)); // PARA MUDANÇA DE COR APENAS
 
-    const resolverCarrinho = () => {
-        dispatch(mudarCarrinho(id));
-    }
     return (
         <div className={classNames(styles.item, {
             [styles.itemNoCarrinho]: carrinho, // Irá sobrepor se estiver na tela carrinho (ou se carrinho for true)
@@ -53,14 +46,14 @@ export default function Item({
                     </div>
                     <div className={styles['item-acoes']}>
                         {favorito
-                            ? <AiFillHeart {...iconeProps} color='#ff0000' className={styles['item-acao']} onClick={resolverFavorito} />
-                            : <AiOutlineHeart {...iconeProps} className={styles['item-acao']} onClick={resolverFavorito} />
+                            ? <AiFillHeart {...iconeProps} color='#ff0000' className={styles['item-acao']} onClick={() => dispatch(mudarFavorito(idGerado))} />
+                            : <AiOutlineHeart {...iconeProps} className={styles['item-acao']} onClick={() => dispatch(mudarFavorito(idGerado))} />
                         }
                         <FaCartPlus
                             {...iconeProps}
                             color={estaNoCarrinho ? '#1875E8' : iconeProps.color}
                             className={styles['item-acao']}
-                            onClick={resolverCarrinho}
+                            onClick={() => dispatch(mudarCarrinho(idGerado))}
                         />
                     </div>
                 </div>
