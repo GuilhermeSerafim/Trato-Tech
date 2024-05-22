@@ -31,7 +31,7 @@ export default function Carrinho() {
 
             />
             <div className={styles.carrinho}>
-                {carrinho.map(item => <Item key={item.id} {...item} carrinho />)} {/* O carrinho aqui só é uma condicional bool */}
+                {carrinho.map(item => <Item key={item.idGerado} {...item} carrinho />)} {/* O carrinho aqui só é uma condicional bool */}
                 <div className={styles.total}>
                     <strong>
                         Resumo da compra

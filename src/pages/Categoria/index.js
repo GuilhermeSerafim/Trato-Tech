@@ -13,10 +13,6 @@ export default function Categoria() {
         itensFiltradosPorCategoria: state.itensCategoria.filter(itemCategoria => itemCategoria.categoria == paramNomeCategoria),
     }));
 
-    itensFiltradosPorCategoria.forEach(element => {
-        console.log(element.idGerado)
-    });
-
     return (
         <div>
             <Header
