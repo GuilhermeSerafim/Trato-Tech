@@ -4,6 +4,7 @@ import categoriasReducer from "./reducers/categorias";
 import itensDeCadaCategoria from "./reducers/itensDeCadaCategoria"
 import contadorReducer from "./reducers/contador";
 import carrinhoReducer from "./reducers/carrinho";
+import buscaReducer from "./reducers/busca";
 // Criação e configuração do store
 const store = configureStore({
     reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
         itensCategoria: itensDeCadaCategoria,
         contador: contadorReducer, // Desafio
         carrinho: carrinhoReducer,
+        busca: buscaReducer,
     }
 });
 
