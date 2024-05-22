@@ -9,6 +9,7 @@ export default function Carrinho() {
     const navigator = useNavigate();
     const dispatch = useDispatch();
     const { carrinho, total } = useSelector(state => { // Estado global do Redux, que contém todos os slices (partes) do estado definidos na store.
+        const regExp = new RegExp(state.busca, 'i'); // case-insensitive
         let total = 0;
         // reduce -> array.reduce(callback(accumulator, currentValue, currentIndex, array), initialValue)
         // Primeiro parametro: O acumulador que começa como um array vazio e coleta os itens processados.
@@ -19,10 +20,12 @@ export default function Carrinho() {
             total += (itemCategoria.preco * itemAtualNoCarrinho.quantidade);
             // Esse array vai ter todos os elementos que correspondam ao id do itemAtualNoCarrinho, pois quando disparamos mudarCarrinho, 
             // Enviamos o idGerado, que será usado como critério de inclusão no array através de uma comparação mcom find
-            arrInitial.push({
-                ...itemCategoria,
-                quantidade: itemAtualNoCarrinho.quantidade,
-            })
+            if(itemCategoria.titulo.match(regExp)) {
+                arrInitial.push({
+                    ...itemCategoria,
+                    quantidade: itemAtualNoCarrinho.quantidade,
+                })
+            }
             return arrInitial;
         }, []);
         return {
